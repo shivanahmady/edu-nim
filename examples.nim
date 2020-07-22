@@ -4,6 +4,13 @@ out inside this with no indentation restrictions.
       yes("May I ask a pointless question?")
   #[
      Note: these can be nested!!
+
+String literals are enclosed in double quotes; character literals in single quotes. Special characters are escaped with \: \n means newline, \t means tabulator, etc. There are also raw string literals:
+
+r"C:\program files\nim"
+In raw literals the backslash is not an escape character.
+
+The third and last way to write string literals are long string literals. They are written with three quotes: """ ... """; they can span over multiple lines and the \ is not an escape character either. They are very useful for embedding HTML code templates for example.
   ]#
 ]#
 
