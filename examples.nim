@@ -41,3 +41,58 @@ while i <= 10:
   echo i
   inc(i) # increment i by 1
 # --> Outputs 1 2 3 4 5 6 7 8 9 10 on different lines
+
+
+block myblock:
+  echo "entering block"
+  while true:
+    echo "looping"
+    break # leaves the loop, but not the block
+  echo "still in block"
+
+block myblock2:
+  echo "entering block"
+  while true:
+    echo "looping"
+    break myblock2 # leaves the block (and the loop)
+  echo "still in block"
+
+# no indentation needed for single assignment statement:
+if x: x = false
+
+# indentation needed for nested if statement:
+if x:
+  if y:
+    y = false
+  else:
+    y = true
+
+# indentation needed, because two statements follow the condition:
+if x:
+  x = false
+  y = false
+
+
+when system.hostOS == "windows":
+  echo "running on Windows!"
+elif system.hostOS == "linux":
+  echo "running on Linux!"
+elif system.hostOS == "macosx":
+  echo "running on Mac OS X!"
+else:
+  echo "unknown operating system"
+
+
+proc yes(question: string): bool =
+  echo question, " (y/n)"
+  while true:
+    case readLine(stdin)
+    of "y", "Y", "yes", "Yes": return true
+    of "n", "N", "no", "No": return false
+    else: echo "Please be clear: yes or no"
+
+if yes("Should I delete all your important files?"):
+  echo "I'm sorry Dave, I'm afraid I can't do that."
+else:
+  echo "I think you know what the problem is just "
+
