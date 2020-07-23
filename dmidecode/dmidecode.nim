@@ -1,8 +1,5 @@
 let sample1 = """
-# dmidecode 3.1
 Getting SMBIOS data from sysfs.
-SMBIOS 2.6 present.
-
 Handle 0x0001, DMI type 1, 27 bytes
 System Information
         Manufacturer: LENOVO
