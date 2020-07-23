@@ -1,24 +1,27 @@
 # edu-nim
 
-Nim Programming Language Learning Pathway
+Nimble Programming Language Learning Pathway
 
 - [https://nim-lang.org/docs/tut1.html]
 
- Compile / Run
---------------
+PROJECTS DIRECTORY
+=======================
+# 1. DMI/SMBIOS DECODE PARSER 
+- [x] dmi table decorder reference [https://linux.die.net/man/8/dmidecode]
+
+
+
+## Essential NIM Commands
+> Compile / Run
         `nim compile --run greetings.nim`
         `nim c -r greetings.nim`
-
- Release
---------------
+> Release
         `nim c -d:release greetings.nim`
-
- Args
---------------
+> Args
         `nim compile --run greetings.nim arg1 arg2`
 
- String Literals
- ----------------
+## Notes
+> *String Literals*
 String literals are enclosed in double quotes; character literals in single quotes. Special characters are escaped with \: \n means newline, \t means tabulator, etc. There are also raw string literals:
 `r"C:\program files\nim"`
 In raw literals the backslash is not an escape character.

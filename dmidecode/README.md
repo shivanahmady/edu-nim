@@ -1,0 +1,3 @@
+# DMIDECODE PARSER
+
+[x] nimble

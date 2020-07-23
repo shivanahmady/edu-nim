@@ -51,3 +51,25 @@ block sumsim:
 
 
 discard yes_when_asked("May I ask a pointless question?")
+
+proc p(x, y: int): int {.discardable.} = #implicit discarding
+  return x + y
+
+p(3, 4) # now valid
+
+block overloading_procedures:
+    echo "\n--------------------------"    
+    proc toString(x: int): string =
+        result =
+            if x < 0: "negative"
+            elif x > 0: "positive"
+            else: "zero"
+
+    proc toString(x: bool): string =
+        result =
+            if x: "yep"
+            else: "nope"
+
+    assert toString(13) == "positive" # calls the toString(x: int) proc
+    assert toString(true) == "yep"    # calls the toString(x: bool) proc
+    echo "--------------------------\n"
