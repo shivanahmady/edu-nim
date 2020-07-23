@@ -4,14 +4,7 @@ out inside this with no indentation restrictions.
       yes("May I ask a pointless question?")
   #[
      Note: these can be nested!!
-
-String literals are enclosed in double quotes; character literals in single quotes. Special characters are escaped with \: \n means newline, \t means tabulator, etc. There are also raw string literals:
-
-r"C:\program files\nim"
-In raw literals the backslash is not an escape character.
-
-The third and last way to write string literals are long string literals. They are written with three quotes: """ ... """; they can span over multiple lines and the \ is not an escape character either. They are very useful for embedding HTML code templates for example.
-  ]#
+ ]#
 ]#
 
 
@@ -73,26 +66,16 @@ if x:
   y = false
 
 
-when system.hostOS == "windows":
-  echo "running on Windows!"
-elif system.hostOS == "linux":
-  echo "running on Linux!"
-elif system.hostOS == "macosx":
-  echo "running on Mac OS X!"
-else:
-  echo "unknown operating system"
-
-
-proc yes(question: string): bool =
-  echo question, " (y/n)"
+block myblock:
+  echo "entering block"
   while true:
-    case readLine(stdin)
-    of "y", "Y", "yes", "Yes": return true
-    of "n", "N", "no", "No": return false
-    else: echo "Please be clear: yes or no"
+    echo "looping"
+    break # leaves the loop, but not the block
+  echo "still in block"
 
-if yes("Should I delete all your important files?"):
-  echo "I'm sorry Dave, I'm afraid I can't do that."
-else:
-  echo "I think you know what the problem is just "
-
+block myblock2:
+  echo "entering block"
+  while true:
+    echo "looping"
+    break myblock2 # leaves the block (and the loop)
+  echo "still in block"
